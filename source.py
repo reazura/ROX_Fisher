@@ -5,8 +5,7 @@ import numpy
 from time import time, sleep
 import pyautogui
 import random
-
-max=38
+max=400
 pyautogui.PAUSE = 0
 
 print("Once started press 'q' to quit.")
@@ -42,7 +41,7 @@ while True:
     _, max_val, _, max_loc = cv2.minMaxLoc(result)
     print(f"{action}. ({count+1} of {max}) Match%: {max_val}")
     src = scr.copy()
-    if max_val > .85:
+    if max_val > .8:
         fishing = not fishing
         randX = random.randint(0,21)
         randY = random.randint(0,21)
@@ -53,7 +52,8 @@ while True:
                 print(f"End")
                 break
 
-    sleep_time = round(random.uniform(.05,.15), 4)
+    sleep_time = round(random.uniform(.02,.08), 4)
+    #print(sleep_time)
     sleep(sleep_time)
     if keyboard.is_pressed('q'):
         break
